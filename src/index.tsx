@@ -6,7 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import { store } from './redux/store';
-import './normalize.css';
+import './styles/normalize.css';
+import './styles/index.scss';
 
 const container = document.getElementById('root');
 const root = createRoot(container);

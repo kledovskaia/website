@@ -1,0 +1,10 @@
+.page {
+  display: flex;
+
+  &__sidebar {
+    flex-basis: 30rem;
+  }
+  &__content {
+    flex: 1;
+  }
+}

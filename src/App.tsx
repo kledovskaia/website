@@ -1,6 +1,7 @@
-import { FC, lazy, memo } from 'react';
+import { FC, lazy, memo, Suspense } from 'react';
 import { connect } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import Loader from './components/Loader/Loader';
 import Page from './containers/Page/Page';
 import { RootState } from './redux/store';
 
@@ -15,14 +16,16 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 const App: FC<Props> = ({}) => {
   return (
     <Page>
-      <Routes>
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/" element={<Navigate to="/skills" />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Navigate to="/skills" />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </Page>
   );
 };
