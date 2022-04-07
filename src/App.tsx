@@ -1,9 +1,10 @@
-import { FC, lazy, memo, Suspense } from 'react';
+import { FC, lazy, memo, Suspense, useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
-import Page from './containers/Page/Page';
 import { RootState } from './redux/store';
+import s from './App.module.scss';
+import classNames from 'classnames';
 
 type Props = {};
 
@@ -14,19 +15,34 @@ const About = lazy(() => import('./pages/About'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const App: FC<Props> = ({}) => {
+  const [isSidebarHidden, setIsSidebarHidden] = useState(true);
+
+  const toggleSidebar = useCallback(() => {
+    setIsSidebarHidden((state) => !state);
+  }, []);
+
   return (
-    <Page>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/" element={<Navigate to="/skills" />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </Page>
+    <div className={s.app}>
+      <div
+        className={classNames(s.app__sidebar, {
+          [s.app__sidebar_hidden]: isSidebarHidden,
+        })}
+      >
+        {/* <Sidebar /> */}
+      </div>
+      <main className={s.app__content}>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/" element={<Navigate to="/skills" />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </main>
+    </div>
   );
 };
 

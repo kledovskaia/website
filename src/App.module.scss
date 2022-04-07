@@ -1,0 +1,16 @@
+.app {
+  display: flex;
+
+  &__sidebar {
+    overflow: hidden;
+    flex-basis: 30rem;
+    transition: flex-basis 0.2s;
+
+    &_hidden {
+      flex-basis: 0;
+    }
+  }
+  &__content {
+    flex: 1;
+  }
+}
