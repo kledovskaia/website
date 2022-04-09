@@ -1,6 +1,7 @@
 @import '../../styles/variables';
 
 .header {
+  background-color: $secondary-light;
   display: flex;
   align-items: center;
   padding-right: 1rem;
@@ -11,7 +12,7 @@
 
   &__toggle {
     margin-right: auto;
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 2rem;
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -30,17 +31,7 @@
     background-color: transparent;
     display: flex;
     align-items: center;
-
-    &_left {
-      div {
-        margin-left: 0;
-      }
-    }
-    &_right {
-      div {
-        margin-left: 2.6rem;
-      }
-    }
+    transition: background-color 0.1s;
 
     div {
       width: 3rem;
@@ -58,6 +49,18 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+      }
+    }
+    &_left {
+      background-color: $primary-light;
+      div {
+        margin-left: 0;
+      }
+    }
+    &_right {
+      background-color: $secondary-medium;
+      div {
+        margin-left: 2.6rem;
       }
     }
   }
