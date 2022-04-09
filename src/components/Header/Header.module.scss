@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+
+.header {
+  display: flex;
+  &__toggle {
+    margin-right: auto;
+    padding: 1rem 1.5rem;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    svg {
+      fill: $secondary-dark;
+      width: 2.5rem;
+    }
+  }
+  &__switch {
+    svg {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+}

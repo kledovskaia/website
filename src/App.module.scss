@@ -2,14 +2,11 @@
   display: flex;
   min-height: 100vh;
 
-  &__sidebar {
+  & > &__sidebar {
     overflow: hidden;
     flex-basis: 30rem;
     transition: margin-left 0.2s;
     display: flex;
-    & > * {
-      flex: 1;
-    }
 
     &_hidden {
       margin-left: -30rem;
@@ -18,7 +15,9 @@
   &__content {
     flex: 1;
     display: flex;
-    & > * {
+    flex-direction: column;
+
+    & > * + * {
       flex: 1;
     }
   }

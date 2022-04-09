@@ -20,6 +20,7 @@ const App: FC<Props> = ({}) => {
   const [isSidebarHidden, setIsSidebarHidden] = useState(false);
 
   const toggleSidebar = useCallback(() => {
+    console.log('sidebar toggle');
     setIsSidebarHidden((state) => !state);
   }, []);
 
@@ -33,7 +34,7 @@ const App: FC<Props> = ({}) => {
         <Sidebar />
       </div>
       <main className={s.app__content}>
-        <Header handleToggle={toggleSidebar} />
+        <Header toggleSidebar={toggleSidebar} />
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/skills" element={<Skills />} />

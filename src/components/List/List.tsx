@@ -24,7 +24,7 @@ const List: FC<Props> = ({ items }) => {
             [s.list__item_progress]: typeof item.value.progress === 'number',
           })}
         >
-          {item.Icon && <item.Icon className="icon icon_light" />}
+          {item.Icon && <item.Icon />}
 
           <div className={s.list__info}>
             <span>{item.value.name}</span>
