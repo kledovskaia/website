@@ -6,6 +6,7 @@ import { RootState } from './redux/store';
 import s from './App.module.scss';
 import classNames from 'classnames';
 import Sidebar from './components/Sidebar/Sidebar';
+import Header from './components/Header/Header';
 
 type Props = {};
 
@@ -32,12 +33,13 @@ const App: FC<Props> = ({}) => {
         <Sidebar />
       </div>
       <main className={s.app__content}>
+        <Header handleToggle={toggleSidebar} />
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/skills" element={<Skills />} />
-            <Route path="/experience" element={<Experience />} />
+            {/* <Route path="/experience" element={<Experience />} />
             <Route path="/education" element={<Education />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About />} /> */}
             <Route path="/" element={<Navigate to="/skills" />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -49,12 +49,14 @@ const Sidebar = () => (
         </span>
       </a>
     </header>
-    <List
-      items={profile.skills.map((skill) => ({
-        ...skill,
-        Icon: skillIcons[skill.value.name as keyof typeof skillIcons],
-      }))}
-    />
+    <div className={s.sidebar__skills}>
+      <List
+        items={profile.skills.map((skill) => ({
+          ...skill,
+          Icon: skillIcons[skill.value.name as keyof typeof skillIcons],
+        }))}
+      />
+    </div>
     <footer>
       <ContactIcon className="icon icon_dark" />
       <h3>Contact me</h3>
