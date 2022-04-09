@@ -1,3 +1,5 @@
+@import './variables';
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -7,10 +9,40 @@ body {
   font-size: 1.6rem;
 }
 
-*,
-*::before,
-*::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: inherit;
+:root {
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  fill: currentColor;
+}
+
+.icon {
+  width: 5rem;
+  height: 5rem;
+  padding: 1rem;
+  border-radius: 50%;
+  &_dark {
+    background-color: $secondary-dark;
+    fill: $primary-light;
+  }
+  &_light {
+    background-color: $primary-light;
+    fill: $secondary-dark;
+  }
 }

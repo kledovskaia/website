@@ -1,0 +1,46 @@
+@import '../../styles/variables';
+
+.list {
+  &__item {
+    display: flex;
+    align-items: center;
+    svg {
+      min-width: 3rem;
+      margin: 0 1rem;
+    }
+
+    &_progress {
+      svg {
+        fill: currentColor;
+        border-radius: 0;
+        background-color: transparent;
+        min-width: 4rem;
+        min-height: 4rem;
+        margin: 0;
+      }
+      span {
+        font-size: 1.4rem;
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+  &__progressBar {
+    background-color: $primary-light;
+    position: relative;
+    min-height: 0.5rem;
+
+    div {
+      background-color: $secondary-dark;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+  &__info {
+    flex: 1;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -5,6 +5,7 @@ import Loader from './components/Loader/Loader';
 import { RootState } from './redux/store';
 import s from './App.module.scss';
 import classNames from 'classnames';
+import Sidebar from './components/Sidebar/Sidebar';
 
 type Props = {};
 
@@ -15,7 +16,7 @@ const About = lazy(() => import('./pages/About'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const App: FC<Props> = ({}) => {
-  const [isSidebarHidden, setIsSidebarHidden] = useState(true);
+  const [isSidebarHidden, setIsSidebarHidden] = useState(false);
 
   const toggleSidebar = useCallback(() => {
     setIsSidebarHidden((state) => !state);
@@ -28,7 +29,7 @@ const App: FC<Props> = ({}) => {
           [s.app__sidebar_hidden]: isSidebarHidden,
         })}
       >
-        {/* <Sidebar /> */}
+        <Sidebar />
       </div>
       <main className={s.app__content}>
         <Suspense fallback={<Loader />}>
