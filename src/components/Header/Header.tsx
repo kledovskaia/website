@@ -29,7 +29,7 @@ const Header: FC<Props> = ({ toggleSidebar }) => {
       <button className={s.header__toggle} onClick={toggleSidebar}>
         <MenuIcon />
       </button>
-      <button
+      {/* <button
         onClick={toggleTheme}
         className={classNames(s.header__switch, {
           [s.header__switch_left]: theme === 'dark',
@@ -52,7 +52,7 @@ const Header: FC<Props> = ({ toggleSidebar }) => {
           {language === 'ru' && <RussianIcon />}
           {language === 'en' && <EnglishIcon />}
         </div>
-      </button>
+      </button> */}
     </header>
   );
 };

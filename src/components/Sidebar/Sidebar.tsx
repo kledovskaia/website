@@ -21,11 +21,11 @@ const profile = {
     { type: 'phone', value: { name: '+123456789' } },
   ],
   skills: [
-    { value: { name: 'TypeScript', progress: 70 } },
-    { value: { name: 'JavaScript', progress: 80 } },
     { value: { name: 'React', progress: 70 } },
     { value: { name: 'Redux', progress: 70 } },
     { value: { name: 'GraphQL', progress: 30 } },
+    { value: { name: 'TypeScript', progress: 70 } },
+    { value: { name: 'JavaScript', progress: 80 } },
     { value: { name: 'Git', progress: 50 } },
   ],
 };

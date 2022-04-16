@@ -7,6 +7,9 @@
     flex-basis: 30rem;
     transition: margin-left 0.2s;
     display: flex;
+    & > * {
+      flex: 1;
+    }
 
     &_hidden {
       margin-left: -30rem;
