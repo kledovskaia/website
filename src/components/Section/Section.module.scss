@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+
+.section {
+  padding: 2rem;
+  &__iconContainer {
+    background-color: $secondary;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  h3 {
+    border-radius: 10rem;
+    font-size: 2.4rem;
+    display: flex;
+    align-items: center;
+    color: $secondary-dark;
+
+    background-image: linear-gradient(
+      to right,
+      $secondary-light,
+      #ffffff00,
+      #ffffff00,
+      #ffffff00,
+      #ffffff00
+    );
+
+    & > * + * {
+      margin-left: 1rem;
+    }
+
+    svg {
+      height: 3rem;
+      width: 3rem;
+      fill: $primary-light;
+    }
+  }
+}

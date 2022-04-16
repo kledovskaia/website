@@ -60,6 +60,7 @@ const Sidebar = () => (
     </header>
     <div className={s.sidebar__skills}>
       <List
+        type="bar"
         items={profile.skills.map((skill) => ({
           ...skill,
           Icon: skillIcons[skill.label as keyof typeof skillIcons],

@@ -7,13 +7,15 @@ type Item = {
   link?: string;
   progress?: number;
   Icon?: SFC<SVGProps<SVGSVGElement>>;
+  level?: string;
 };
 
 type Props = {
   items: Item[];
+  type?: 'bar' | 'bullet';
 };
 
-const List: FC<Props> = ({ items }) => {
+const List: FC<Props> = ({ items, type }) => {
   return (
     <ul className={s.list}>
       {items.map((item) => {
@@ -34,7 +36,7 @@ const List: FC<Props> = ({ items }) => {
         return (
           <li
             className={classNames(s.list__item, {
-              [s.list__item_progress]: typeof item.progress === 'number',
+              [s.list__item_progress]: type === 'bar',
             })}
           >
             {item.link && (

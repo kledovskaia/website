@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { FC, memo } from 'react';
 import { ReactComponent as ExperienceIcon } from '../../assets/icons/experience.svg';
+import Section from '../Section/Section';
 import s from './Experience.module.scss';
 
 type Props = {};
@@ -15,11 +16,8 @@ const experiences = [
     responsibilities: [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
     ],
     achievements: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
     ],
@@ -33,11 +31,8 @@ const experiences = [
     responsibilities: [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
     ],
     achievements: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
     ],
@@ -46,13 +41,7 @@ const experiences = [
 
 const Experience: FC<Props> = ({}) => {
   return (
-    <section className={s.experience}>
-      <h3>
-        <span className={s.experience__iconContainer}>
-          <ExperienceIcon />
-        </span>
-        <span>Experience</span>
-      </h3>
+    <Section Icon={ExperienceIcon} title="Experience" className={s.experience}>
       <ul className={s.experience__companyList}>
         {experiences.map((item) => (
           <li
@@ -98,7 +87,7 @@ const Experience: FC<Props> = ({}) => {
           </li>
         ))}
       </ul>
-    </section>
+    </Section>
   );
 };
 

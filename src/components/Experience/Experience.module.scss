@@ -1,32 +1,6 @@
 @import '../../styles/variables';
 
 .experience {
-  padding: 2rem;
-  &__iconContainer {
-    background-color: $secondary;
-    border-radius: 50%;
-    height: 5rem;
-    width: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  h3 {
-    font-size: 2.4rem;
-    display: flex;
-    align-items: center;
-
-    & > * + * {
-      margin-left: 1rem;
-    }
-
-    svg {
-      height: 3rem;
-      width: 3rem;
-      fill: $primary-light;
-    }
-  }
-
   &__company {
     margin: 0 2.25rem;
     padding: 2rem 3rem 0;

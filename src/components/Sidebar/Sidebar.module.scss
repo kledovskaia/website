@@ -2,9 +2,13 @@
 
 .sidebar {
   color: $primary-light;
-  background-color: $secondary-medium;
   display: flex;
+  background-color: $secondary-medium;
   flex-direction: column;
+
+  & > * {
+    background-color: $secondary-medium;
+  }
 
   & > &__skills {
     padding: 1rem 2rem 1rem 1rem;
