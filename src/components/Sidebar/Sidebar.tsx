@@ -16,17 +16,26 @@ const profile = {
     country: 'Georgia',
   },
   contacts: [
-    { type: 'telegram', value: { name: 'kledovskaia' } },
-    { type: 'email', value: { name: 'email@gmail.com' } },
-    { type: 'phone', value: { name: '+123456789' } },
+    {
+      type: 'github',
+      label: 'kledovskaia',
+      link: 'https://github.com/kledovskaia',
+    },
+    { type: 'email', label: 'email@gmail.com', link: 'mailto:email@gmail.com' },
+    { type: 'phone', label: '+123456789', link: 'tel:123456789' },
+    {
+      type: 'telegram',
+      label: 'kledovskaia',
+      link: 'https://t.me/kledovskaia',
+    },
   ],
   skills: [
-    { value: { name: 'React', progress: 70 } },
-    { value: { name: 'Redux', progress: 70 } },
-    { value: { name: 'GraphQL', progress: 30 } },
-    { value: { name: 'TypeScript', progress: 70 } },
-    { value: { name: 'JavaScript', progress: 80 } },
-    { value: { name: 'Git', progress: 50 } },
+    { label: 'React', progress: 70 },
+    { label: 'Redux', progress: 70 },
+    { label: 'GraphQL', progress: 30 },
+    { label: 'TypeScript', progress: 70 },
+    { label: 'JavaScript', progress: 80 },
+    { label: 'Git', progress: 50 },
   ],
 };
 
@@ -53,13 +62,11 @@ const Sidebar = () => (
       <List
         items={profile.skills.map((skill) => ({
           ...skill,
-          Icon: skillIcons[skill.value.name as keyof typeof skillIcons],
+          Icon: skillIcons[skill.label as keyof typeof skillIcons],
         }))}
       />
     </div>
     <footer>
-      <ContactIcon className="icon icon_dark" />
-      <h3>Contact me</h3>
       <List
         items={profile.contacts.map((contact) => ({
           ...contact,

@@ -7,8 +7,10 @@ import { ReactComponent as GraphQL } from '../assets/icons/graphql.svg';
 import { ReactComponent as TypeScript } from '../assets/icons/typescript.svg';
 import { ReactComponent as JavaScript } from '../assets/icons/javascript.svg';
 import { ReactComponent as Git } from '../assets/icons/git.svg';
+import { ReactComponent as Github } from '../assets/icons/github.svg';
 
 export const contacts = {
+  github: Github,
   telegram: Telegram,
   email: Email,
   phone: Phone,

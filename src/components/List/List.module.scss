@@ -4,9 +4,21 @@
   &__item {
     display: flex;
     align-items: center;
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: inherit;
+      align-items: inherit;
+
+      &:hover {
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
     svg {
-      min-width: 2rem;
-      min-height: 2rem;
+      width: 2rem;
+      height: 2rem;
       margin: 0 1rem;
     }
 

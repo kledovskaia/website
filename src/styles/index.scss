@@ -6,6 +6,7 @@
 }
 
 body {
+  color: rgb(42, 0, 42);
   font-size: 1.6rem;
   *,
   *::before,
@@ -30,8 +31,8 @@ svg {
 }
 
 .icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   padding: 1rem;
   border-radius: 50%;
   &_dark {

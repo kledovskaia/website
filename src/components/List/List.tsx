@@ -3,11 +3,9 @@ import { FC, memo, SFC, SVGProps } from 'react';
 import s from './List.module.scss';
 
 type Item = {
-  value: {
-    name: string;
-    progress?: number;
-    label?: string;
-  };
+  label: string;
+  link?: string;
+  progress?: number;
   Icon?: SFC<SVGProps<SVGSVGElement>>;
 };
 
@@ -18,24 +16,36 @@ type Props = {
 const List: FC<Props> = ({ items }) => {
   return (
     <ul className={s.list}>
-      {items.map((item) => (
-        <li
-          className={classNames(s.list__item, {
-            [s.list__item_progress]: typeof item.value.progress === 'number',
-          })}
-        >
-          {item.Icon && <item.Icon />}
+      {items.map((item) => {
+        const content = (
+          <>
+            {item.Icon && <item.Icon />}
+            <div className={s.list__info}>
+              <span>{item.label}</span>
+              {item.progress && (
+                <div className={s.list__progressBar}>
+                  <div style={{ width: `${item.progress}%` }}></div>
+                </div>
+              )}
+            </div>
+          </>
+        );
 
-          <div className={s.list__info}>
-            <span>{item.value.name}</span>
-            {item.value.progress && (
-              <div className={s.list__progressBar}>
-                <div style={{ width: `${item.value.progress}%` }}></div>
-              </div>
+        return (
+          <li
+            className={classNames(s.list__item, {
+              [s.list__item_progress]: typeof item.progress === 'number',
+            })}
+          >
+            {item.link && (
+              <a href={item.link} target="_blank" rel="noreferrer">
+                {content}
+              </a>
             )}
-          </div>
-        </li>
-      ))}
+            {!item.link && content}
+          </li>
+        );
+      })}
     </ul>
   );
 };
