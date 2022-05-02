@@ -1,0 +1,44 @@
+.languages {
+  font-size: 2rem;
+  padding: 3rem 6rem;
+  max-width: max-content;
+
+  &__item {
+    & + & {
+      margin-top: 1rem;
+    }
+
+    display: grid;
+    grid-template-columns: 7.5rem 14rem 10rem;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  &__progress {
+    flex: 1;
+    position: relative;
+  }
+  &__pointContainer {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    & > * + * {
+      margin-left: 0.5rem;
+    }
+  }
+  &__point {
+    background-color: var(--secondary);
+    &,
+    &_ghost {
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+    }
+    &_ghost {
+      background-color: var(--secondary-light);
+    }
+  }
+}
