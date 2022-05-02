@@ -15,7 +15,13 @@ const Sidebar: FC<Props> = ({ className, info, ...props }) => (
   <section className={classNames(className, s.sidebar)} {...props}>
     <header>
       {info && (
-        <Image priority={true} height={564} width={564} src={info.photo} />
+        <Image
+          priority={true}
+          height={564}
+          width={564}
+          src={info.photo}
+          alt=""
+        />
       )}
       <div>
         <h1>{info?.name}</h1>

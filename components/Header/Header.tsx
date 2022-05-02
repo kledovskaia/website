@@ -33,7 +33,11 @@ const Header: FC<Props> = ({ className, toggleSidebar, ...props }) => {
 
   return (
     <header className={classNames(s.header, className)} {...props}>
-      <button className={s.header__toggle} onClick={toggleSidebar}>
+      <button
+        aria-label="toggle menu"
+        className={s.header__toggle}
+        onClick={toggleSidebar}
+      >
         <MenuIcon />
       </button>
       {/* <button

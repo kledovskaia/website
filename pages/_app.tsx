@@ -8,6 +8,7 @@ import classNames from 'classnames';
 
 import Sidebar from '../components/Sidebar/Sidebar';
 import Header from '../components/Header/Header';
+import Head from 'next/head';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [isSidebarHidden, setIsSidebarHidden] = useState(false);
@@ -18,6 +19,17 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <div className={s.app}>
+      <Head>
+        <title>Personal Website</title>
+        {pageProps.profile ? (
+          <meta
+            name="description"
+            content={`${pageProps.profile.info.name} - ${pageProps.profile.info.jobTitle} | Personal Website`}
+          />
+        ) : (
+          <meta name="description" content={`My Personal Website`} />
+        )}
+      </Head>
       <div
         className={classNames(s.app__sidebar, {
           [s.app__sidebar_hidden]: isSidebarHidden,
