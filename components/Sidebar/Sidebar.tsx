@@ -8,26 +8,28 @@ import Image from 'next/image';
 import classNames from 'classnames';
 
 type Props = {
-  info: TProfile['info'];
+  info?: TProfile['info'];
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
 const Sidebar: FC<Props> = ({ className, info, ...props }) => (
   <section className={classNames(className, s.sidebar)} {...props}>
     <header>
-      <Image priority={true} height={564} width={564} src={info.photo} />
+      {info && (
+        <Image priority={true} height={564} width={564} src={info.photo} />
+      )}
       <div>
-        <h1>{info.name}</h1>
-        <h2>{`<${info.jobTitle} />`}</h2>
+        <h1>{info?.name}</h1>
+        <h2>{`<${info?.jobTitle} />`}</h2>
       </div>
-      {info.location && (
+      {info?.location && (
         <a
-          href={`https://www.google.com/maps/place/${info.location.city},+${info.location.country}/`}
+          href={`https://www.google.com/maps/place/${info?.location.city},+${info?.location.country}/`}
           target="_blank"
           rel="noreferrer"
         >
           <LocationIcon />
           <span>
-            {info.location.city}, {info.location.country}
+            {info?.location.city}, {info?.location.country}
           </span>
         </a>
       )}
@@ -35,7 +37,7 @@ const Sidebar: FC<Props> = ({ className, info, ...props }) => (
     <div className={s.sidebar__skills}>
       <List
         type="bar"
-        items={info.skills.map((skill) => ({
+        items={info?.skills.map((skill) => ({
           ...skill,
           Icon: skillIcons[skill.label as keyof typeof skillIcons],
         }))}
@@ -43,7 +45,7 @@ const Sidebar: FC<Props> = ({ className, info, ...props }) => (
     </div>
     <footer>
       <List
-        items={info.contacts.map((contact) => ({
+        items={info?.contacts.map((contact) => ({
           ...contact,
           Icon: contactIcons[contact.type as keyof typeof contactIcons],
         }))}

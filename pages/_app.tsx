@@ -23,7 +23,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           [s.app__sidebar_hidden]: isSidebarHidden,
         })}
       >
-        <Sidebar info={pageProps.profile.info} />
+        <Sidebar info={pageProps.profile?.info} />
       </div>
       <main className={s.app__content}>
         <Header toggleSidebar={toggleSidebar} />

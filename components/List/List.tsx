@@ -11,14 +11,14 @@ type Item = {
 };
 
 type Props = {
-  items: Item[];
+  items?: Item[];
   type?: 'bar' | 'bullet';
 };
 
 const List: FC<Props> = ({ items, type }) => {
   return (
     <ul className={s.list}>
-      {items.map((item) => {
+      {items?.map((item) => {
         const content = (
           <>
             {item.Icon && <item.Icon />}
