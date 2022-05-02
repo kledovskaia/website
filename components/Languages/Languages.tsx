@@ -1,17 +1,14 @@
-import { FC, memo } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, memo } from 'react';
 import Section from '../Section/Section';
 import LanguageIcon from '../../assets/icons/language.svg';
 import s from './Languages.module.scss';
 import classNames from 'classnames';
 
-type Props = {};
+type Props = {
+  languages: TProfile['languages'];
+} & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
-const languages = [
-  { label: 'English', progress: 3, level: 'B1' },
-  { label: 'Russian', progress: 6, level: 'Native' },
-];
-
-const Languages: FC<Props> = ({}) => {
+const Languages: FC<Props> = ({ languages }) => {
   return (
     <Section Icon={LanguageIcon} title="Languages">
       <ul className={s.languages}>

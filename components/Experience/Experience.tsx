@@ -1,45 +1,14 @@
 import classNames from 'classnames';
-import { FC, memo } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, memo } from 'react';
 import ExperienceIcon from '../../assets/icons/experience.svg';
 import Section from '../Section/Section';
 import s from './Experience.module.scss';
 
-type Props = {};
+type Props = {
+  experiences: TProfile['experiences'];
+} & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
-const experiences = [
-  {
-    from: 'Dec 2021',
-    to: 'Feb 2022',
-    company: 'Performance Lab',
-    link: 'https://www.performance-lab.ru',
-    position: 'Trainee Frontend Developer',
-    responsibilities: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
-    ],
-    achievements: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
-    ],
-  },
-  {
-    from: 'Sep 2021',
-    to: 'Nov 2021',
-    company: 'Ecohub',
-    link: 'https://www.ecohubmap.com',
-    position: 'Intern Developer',
-    responsibilities: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim amet distinctio aliquam modi alias, fugit impedit, autem quo labore velit, obcaecati fugiat id debitis doloremque error. Facere maxime eveniet quaerat?',
-    ],
-    achievements: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, animi.',
-    ],
-  },
-];
-
-const Experience: FC<Props> = ({}) => {
+const Experience: FC<Props> = ({ experiences }) => {
   return (
     <Section Icon={ExperienceIcon} title="Experience" className={s.experience}>
       <ul className={s.experience__companyList}>
@@ -64,7 +33,7 @@ const Experience: FC<Props> = ({}) => {
               </a>
               <p className={s.company__position}>{item.position}</p>
             </div>
-            {!!item.achievements.length && (
+            {!!item.achievements?.length && (
               <>
                 <h4>Achievements</h4>
                 <ul>
@@ -74,7 +43,7 @@ const Experience: FC<Props> = ({}) => {
                 </ul>
               </>
             )}
-            {!!item.responsibilities.length && (
+            {!!item.responsibilities?.length && (
               <>
                 <h4>Responsibilities</h4>
                 <ul>

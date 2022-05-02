@@ -12,24 +12,24 @@ type Props = {
 };
 
 const Header: FC<Props> = ({ toggleSidebar }) => {
-  const [theme, setTheme] = useState('light');
-  const [language, setLanguage] = useState('ru');
+  // const [theme, setTheme] = useState('light');
+  // const [language, setLanguage] = useState('ru');
 
-  const toggleTheme = useCallback(
-    () => setTheme((theme) => (theme === 'dark' ? 'light' : 'dark')),
-    []
-  );
-  const toggleLanguage = useCallback(
-    () => setLanguage((lang) => (lang === 'ru' ? 'en' : 'ru')),
-    []
-  );
+  // const toggleTheme = useCallback(
+  //   () => setTheme((theme) => (theme === 'dark' ? 'light' : 'dark')),
+  //   []
+  // );
+  // const toggleLanguage = useCallback(
+  //   () => setLanguage((lang) => (lang === 'ru' ? 'en' : 'ru')),
+  //   []
+  // );
 
   return (
     <header className={s.header}>
       <button className={s.header__toggle} onClick={toggleSidebar}>
         <MenuIcon />
       </button>
-      <button
+      {/* <button
         onClick={toggleTheme}
         className={classNames(s.header__switch, {
           [s.header__switch_left]: theme === 'dark',
@@ -52,7 +52,7 @@ const Header: FC<Props> = ({ toggleSidebar }) => {
           {language === 'ru' && <RussianIcon />}
           {language === 'en' && <EnglishIcon />}
         </div>
-      </button>
+      </button> */}
     </header>
   );
 };
