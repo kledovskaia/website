@@ -11,7 +11,7 @@ type Props = {
 
 const Section: FC<Props> = ({ className, Icon, title, children }) => {
   return (
-    <section className={classNames(s.section, className)}>
+    <section className={classNames(className, s.section)}>
       <h3>
         <span className={s.section__iconContainer}>{<Icon />}</span>
         <span>{title}</span>

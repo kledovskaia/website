@@ -3,6 +3,7 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import Experience from '../components/Experience/Experience';
 import Languages from '../components/Languages/Languages';
 import Wakatime from '../components/Wakatime/Wakatime';
+import s from '../styles/Resume.module.scss';
 
 type Props = {
   profile: TProfile;
@@ -10,10 +11,17 @@ type Props = {
 
 const Resume: NextPage<Props> = ({ profile }) => {
   return (
-    <div>
-      <Experience experiences={profile.experiences} />
-      <Languages languages={profile.languages} />
-      <Wakatime wakatime={profile.wakatime} />
+    <div className={s.resume}>
+      <div className={s.resume__row}>
+        <Experience
+          className={s.resume__row_5}
+          experiences={profile.experiences}
+        />
+        <Languages className={s.resume__row_1} languages={profile.languages} />
+      </div>
+      <div className={s.resume__row}>
+        <Wakatime wakatime={profile.wakatime} />
+      </div>
     </div>
   );
 };

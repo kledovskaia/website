@@ -1,4 +1,11 @@
-import { FC, memo, useCallback, useState } from 'react';
+import {
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  memo,
+  useCallback,
+  useState,
+} from 'react';
 import MenuIcon from '../../assets/icons/menu.svg';
 import DarkIcon from '../../assets/icons/night.svg';
 import LightIcon from '../../assets/icons/day.svg';
@@ -9,9 +16,9 @@ import classNames from 'classnames';
 
 type Props = {
   toggleSidebar: () => void;
-};
+} & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
-const Header: FC<Props> = ({ toggleSidebar }) => {
+const Header: FC<Props> = ({ className, toggleSidebar, ...props }) => {
   // const [theme, setTheme] = useState('light');
   // const [language, setLanguage] = useState('ru');
 
@@ -25,7 +32,7 @@ const Header: FC<Props> = ({ toggleSidebar }) => {
   // );
 
   return (
-    <header className={s.header}>
+    <header className={classNames(s.header, className)} {...props}>
       <button className={s.header__toggle} onClick={toggleSidebar}>
         <MenuIcon />
       </button>

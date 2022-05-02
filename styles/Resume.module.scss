@@ -1,0 +1,15 @@
+.resume {
+  &__row {
+    margin: 0 auto;
+    max-width: 170rem;
+
+    @media screen and (min-width: 90rem) {
+      display: flex;
+      justify-content: center;
+
+      & > * {
+        flex: 1;
+      }
+    }
+  }
+}

@@ -8,9 +8,13 @@ type Props = {
   experiences: TProfile['experiences'];
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
-const Experience: FC<Props> = ({ experiences }) => {
+const Experience: FC<Props> = ({ className, experiences, ...props }) => {
   return (
-    <Section Icon={ExperienceIcon} title="Experience" className={s.experience}>
+    <Section
+      Icon={ExperienceIcon}
+      title="Experience"
+      className={classNames(className, s.experience)}
+    >
       <ul className={s.experience__companyList}>
         {experiences.map((item) => (
           <li

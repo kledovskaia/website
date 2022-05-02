@@ -8,9 +8,9 @@ type Props = {
   languages: TProfile['languages'];
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
-const Languages: FC<Props> = ({ languages }) => {
+const Languages: FC<Props> = ({ className, languages }) => {
   return (
-    <Section Icon={LanguageIcon} title="Languages">
+    <Section Icon={LanguageIcon} title="Languages" className={className}>
       <ul className={s.languages}>
         {languages.map((lang) => (
           <li key={lang.label} className={s.languages__item}>

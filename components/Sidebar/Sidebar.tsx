@@ -7,13 +7,14 @@ import { skills as skillIcons } from '../../constants/icons';
 import List from '../List/List';
 import Photo from '../../assets/images/profile-photo.jpg';
 import Image from 'next/image';
+import classNames from 'classnames';
 
 type Props = {
   info: TProfile['info'];
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
-const Sidebar: FC<Props> = ({ info }) => (
-  <section className={s.sidebar}>
+const Sidebar: FC<Props> = ({ className, info, ...props }) => (
+  <section className={classNames(className, s.sidebar)} {...props}>
     <header>
       <Image
         priority={true}
