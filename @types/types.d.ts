@@ -6,7 +6,7 @@ type TProfile = {
 };
 
 type TInfo = {
-  photo?: string;
+  photo: string;
   name: string;
   jobTitle: string;
   contacts: TContact[];

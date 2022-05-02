@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import { AppProps } from 'next/app';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { AppInitialProps, AppProps } from 'next/app';
 
 import '../styles/normalize.css';
 import '../styles/index.scss';
@@ -8,7 +8,6 @@ import classNames from 'classnames';
 
 import Sidebar from '../components/Sidebar/Sidebar';
 import Header from '../components/Header/Header';
-import { profile } from '../data';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [isSidebarHidden, setIsSidebarHidden] = useState(false);
@@ -24,12 +23,12 @@ const App = ({ Component, pageProps }: AppProps) => {
           [s.app__sidebar_hidden]: isSidebarHidden,
         })}
       >
-        <Sidebar info={profile.info} />
+        <Sidebar info={pageProps.profile.info} />
       </div>
       <main className={s.app__content}>
         <Header toggleSidebar={toggleSidebar} />
         <div className={s.container}>
-          <Component profile={profile} {...pageProps} />
+          <Component {...pageProps} />
         </div>
       </main>
     </div>

@@ -1,11 +1,9 @@
 import { DetailedHTMLProps, FC, HTMLAttributes, memo } from 'react';
 import LocationIcon from '../../assets/icons/location.svg';
-import ContactIcon from '../../assets/icons/contact.svg';
 import s from './Sidebar.module.scss';
 import { contacts as contactIcons } from '../../constants/icons';
 import { skills as skillIcons } from '../../constants/icons';
 import List from '../List/List';
-import Photo from '../../assets/images/profile-photo.jpg';
 import Image from 'next/image';
 import classNames from 'classnames';
 
@@ -16,13 +14,7 @@ type Props = {
 const Sidebar: FC<Props> = ({ className, info, ...props }) => (
   <section className={classNames(className, s.sidebar)} {...props}>
     <header>
-      <Image
-        priority={true}
-        height={564}
-        width={564}
-        src={Photo}
-        alt={info.name}
-      />
+      <Image priority={true} height={564} width={564} src={info.photo} />
       <div>
         <h1>{info.name}</h1>
         <h2>{`<${info.jobTitle} />`}</h2>
