@@ -1,0 +1,59 @@
+:root {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  --primary-dark: #000;
+  --primary-light: #fff;
+  --secondary: rgb(85, 0, 85);
+  --secondary-dark: #590759;
+  --secondary-medium: #874c87;
+  --secondary-light: #cbb2cb;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  color: rgb(34, 21, 41);
+  font-size: 1.6rem;
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  fill: currentColor;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 165rem;
+  margin: 0 auto;
+}
+
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 1rem;
+  border-radius: 50%;
+  &_dark {
+    background-color: var(--secondary-dark);
+    fill: var(--primary-light);
+  }
+  &_light {
+    background-color: var(--primary-light);
+    fill: var(--secondary-dark);
+  }
+}

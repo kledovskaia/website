@@ -1,0 +1,40 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+
+  & > &__sidebar {
+    overflow-y: auto;
+    width: 30rem;
+    transition: margin-left 0.2s;
+    display: flex;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    & > * {
+      flex: 1;
+    }
+
+    &_hidden {
+      margin-left: -30rem;
+
+      & + .app__content {
+        margin-left: 0;
+      }
+    }
+  }
+  &__content {
+    margin-left: 30rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.2s;
+
+    & > * + * {
+      flex: 1;
+    }
+  }
+}
