@@ -5,6 +5,7 @@ const nextConfig = {
     domains: [
       'avatars.githubusercontent.com',
       'firebasestorage.googleapis.com',
+      'wakatime.com',
     ],
   },
   webpack(config) {
